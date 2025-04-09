@@ -1,7 +1,45 @@
  body{
-    background-color: rgb(220, 201, 201);
+    background-color: rgb(242, 232, 207);
+    display: flex;
+    flex-direction: row; 
+    justify-content: center;
  }
  
+ #sideBar{
+  font-family: Garamond, serif;
+  display: flex;
+  flex-direction: column; 
+  justify-content: flex-start;
+  align-items: center;
+  width: 19%;
+  height: 95%;
+  background-color: rgb(195, 186, 164);
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  border-radius: 20px;
+  overflow-y: scroll;
+ }
+
+ .respuestasAnt{
+  border: 1px solid rgb(148, 140, 120);
+  height: 20px;
+  text-align: center;
+  width: 90%;
+  border-radius: 20px;
+ }
+
+ #principal{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+ }
  
  
  .titulo {
@@ -9,7 +47,7 @@
     font-size: 36px;
     text-align: center;
     text-decoration: underline;
-    font-family: "Rubik Bubbles", cursive;
+    font-family: Garamond, serif;
 }
       
 .contenedor-calculo {
@@ -19,30 +57,37 @@
     padding: 20px;
     text-align: center;
     font-size: 22px;
-    font-family: "Rubik Doodle Shadow", cursive;
-    border: 2px dashed whitesmoke;
+    font-family: Garamond, serif;
+    border: 2px dashed rgb(148, 140, 120);
     border-radius: 20px;
 
 }
 
 .opciones {
+    margin: auto;
     display: flex;
     flex-direction: column; 
     align-items: center;
     gap: 10px; 
     margin-top: 20px;
+    width: 50%;
 }
 
 .opciones button {
+    text-align: center;
     padding: 15px;
     font-weight: bold;
     color: black;
-    border: 2px solid whitesmoke;
-    background-color: rgb(182, 177, 177);
-    font-family: "Roboto", sans-serif;
+    border: none;
+    background-color: rgb(195, 186, 164);
+    font-family: Garamond, serif;
+    font-size: 17px;
+    border-radius: 20px;
+    width: 70%;
   }
 
   .validar-boton {
+    margin: auto 150 100 auto;
     display: flex;
     justify-content: flex-end;
     padding: 20px;
@@ -50,11 +95,11 @@
 
   .validar-boton button {
     padding: 15px;
-    border: 2px solid whitesmoke;
+    border: none;
     color: black;
     font-weight: bold;
-    background-color: rgb(135, 173, 184);
-    font-family: "Rubik Burned", cursive;
+    background-color: rgb(148, 140, 120);
+    font-family: Garamond, serif;
     border-radius: 20px;
   }
   
@@ -66,5 +111,9 @@
   .incorrecta {
     color: red;
     font-weight: bold;
+  }
+  
+  ::-webkit-scrollbar {
+    display: none;
   }
   
