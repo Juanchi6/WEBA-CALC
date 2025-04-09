@@ -1,0 +1,70 @@
+ body{
+    background-color: rgb(220, 201, 201);
+ }
+ 
+ 
+ 
+ .titulo {
+    color: black;
+    font-size: 36px;
+    text-align: center;
+    text-decoration: underline;
+    font-family: "Rubik Bubbles", cursive;
+}
+      
+.contenedor-calculo {
+    color:black;
+    margin: 30px auto;
+    width: 50%;
+    padding: 20px;
+    text-align: center;
+    font-size: 22px;
+    font-family: "Rubik Doodle Shadow", cursive;
+    border: 2px dashed whitesmoke;
+    border-radius: 20px;
+
+}
+
+.opciones {
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    gap: 10px; 
+    margin-top: 20px;
+}
+
+.opciones button {
+    padding: 15px;
+    font-weight: bold;
+    color: black;
+    border: 2px solid whitesmoke;
+    background-color: rgb(182, 177, 177);
+    font-family: "Roboto", sans-serif;
+  }
+
+  .validar-boton {
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+  }
+
+  .validar-boton button {
+    padding: 15px;
+    border: 2px solid whitesmoke;
+    color: black;
+    font-weight: bold;
+    background-color: rgb(135, 173, 184);
+    font-family: "Rubik Burned", cursive;
+    border-radius: 20px;
+  }
+  
+  .correcta {
+    color: green;
+    font-weight: bold;
+  }
+  
+  .incorrecta {
+    color: red;
+    font-weight: bold;
+  }
+  
