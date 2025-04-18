@@ -19,6 +19,7 @@
   left: 10px;
   border-radius: 20px;
   overflow-y: scroll;
+  padding: 8px;
  }
 
  .respuestasAnt {
@@ -26,7 +27,7 @@
   justify-content: center;
   height: 20px;
   text-align: center;
-  width: 90%;
+  width: 95%;
   border-radius: 5px;
   margin: 5;
   align-content: center;

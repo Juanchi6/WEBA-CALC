@@ -58,23 +58,29 @@ function getQuestionAnswer(num1, num2, operator) {
 let max = 100;
 let cuenta = calculo(max);
 let seleccionada = null;
+const opButtons = document.querySelectorAll(".opciones button");
 
-document.querySelectorAll(".opciones button").forEach(boton => {
+opButtons.forEach(boton => {
   boton.addEventListener("click", (event) => {
-    seleccionada = event.target.id;
+    seleccionada = event.target;
 
-    boton.style.backgroundColor = "rgb(148, 140, 120)";
+    opButtons.forEach(button => {
+      button.style.backgroundColor = "rgb(195, 186, 164)"   
+    });
+
+    seleccionada.style.backgroundColor = "rgb(148, 140, 120)";
+    
   });
 });
 
 document.getElementById("boton").addEventListener("click", () => {
-  const botonSeleccionado = document.getElementById(seleccionada);
+  const botonSeleccionado = document.getElementById(seleccionada.id);
   const botones = document.querySelectorAll(".opciones button");
 
   const resp = document.createElement("span");
   resp.style.display = 'none';
   resp.classList.add("respuestasAnt");
-  resp.textContent = cuenta + " = " + document.getElementById(seleccionada).innerText;
+  resp.textContent = cuenta + " = " + document.getElementById(seleccionada.id).innerText;
   document.getElementById("sideBar").appendChild(resp)
 
   const valor = parseInt(botonSeleccionado.textContent);
