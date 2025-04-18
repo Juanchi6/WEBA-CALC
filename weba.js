@@ -71,7 +71,7 @@ document.getElementById("boton").addEventListener("click", () => {
   const botonSeleccionado = document.getElementById(seleccionada);
   const botones = document.querySelectorAll(".opciones button");
 
-  const resp = document.createElement("p");
+  const resp = document.createElement("span");
   resp.style.display = 'none';
   resp.classList.add("respuestasAnt");
   resp.textContent = cuenta + " = " + document.getElementById(seleccionada).innerText;
