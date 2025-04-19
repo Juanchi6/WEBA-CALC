@@ -81,7 +81,7 @@ document.getElementById("boton").addEventListener("click", () => {
   resp.style.display = 'none';
   resp.classList.add("respuestasAnt");
   resp.textContent = cuenta + " = " + document.getElementById(seleccionada.id).innerText;
-  document.getElementById("sideBar").appendChild(resp)
+  document.getElementById("sideBar").prepend(resp)
 
   const valor = parseInt(botonSeleccionado.textContent);
   if (valor === window.respuestaCorrecta) {
