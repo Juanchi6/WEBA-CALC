@@ -241,6 +241,18 @@
       ],
       "seleccionada": "109",
       "correcta": "128"
+    },
+    {
+      "id": "4c57",
+      "cuenta": "23 - 44",
+      "opciones": [
+        182,
+        151,
+        21,
+        -21
+      ],
+      "seleccionada": "182",
+      "correcta": "-21"
     }
   ]
 }
