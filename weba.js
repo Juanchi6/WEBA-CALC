@@ -1,3 +1,44 @@
+async function TraerDatos() {
+  try {
+    const res = await fetch("http://localhost:3000/datos");
+    if (!res.ok) throw new Error("Error al cargar datos");
+    const datos = await res.json();
+
+    const sideBar = document.getElementById("sideBar");
+
+    datos
+      .slice()
+      .forEach((dato) => {
+        const span = document.createElement("span");
+        resp.classList.add("respuestasAnt");
+        if (seleccionada === correcta) {
+          span.classList.add("bien");
+        } else {
+          span.className = "mal";
+        }
+        span.textContent = dato.cuenta + " = " + dato.seleccionada;
+        sideBar.prepend(span);
+      });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function CargarJson(cuentaCargar, opcionesCargar, seleccionadaCargar, correctaCargar) {
+  try {
+    const res = await fetch("http://localhost:3000/datos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ cuenta: cuentaCargar, opciones: opcionesCargar, seleccionada: seleccionadaCargar, correcta: correctaCargar })
+    });
+    if (!res.ok) throw new Error("Error al agregar post");
+  } catch (err) {
+    console.error(err);
+  }
+}
+
 function getRandom(max) {
   return Math.floor(Math.random() * max);
 }
@@ -31,13 +72,13 @@ function calculo(maximo) {
     form2 = getRandom(maximo * 2);
   }
 
-  const opciones = [resultado, form1, form2].sort(() => Math.random() - 0.5);
+  opciones = [resultado, form1, form2].sort(() => Math.random() - 0.5);
 
   document.getElementById("1").textContent = opciones[0];
   document.getElementById("2").textContent = opciones[1];
   document.getElementById("3").textContent = opciones[2];
 
-  window.respuestaCorrecta = resultado;
+  correcta = resultado;
 
   return cuenta
 }
@@ -55,9 +96,12 @@ function getQuestionAnswer(num1, num2, operator) {
   }
 }
 
+TraerDatos();
 let max = 100;
-let cuenta = calculo(max);
 let seleccionada = null;
+let opciones = null;
+let correcta = null;
+let cuenta = calculo(max);
 const opButtons = document.querySelectorAll(".opciones button");
 
 opButtons.forEach(boton => {
@@ -65,50 +109,61 @@ opButtons.forEach(boton => {
     seleccionada = event.target;
 
     opButtons.forEach(button => {
-      button.style.backgroundColor = "rgb(195, 186, 164)"   
+      button.style.backgroundColor = "rgb(195, 186, 164)"
     });
 
     seleccionada.style.backgroundColor = "rgb(148, 140, 120)";
-    
+
   });
 });
 
-document.getElementById("boton").addEventListener("click", () => {
-  const botonSeleccionado = document.getElementById(seleccionada.id);
-  const botones = document.querySelectorAll(".opciones button");
+const botonContinuar = document.getElementById("boton"); 
 
-  const resp = document.createElement("span");
-  resp.style.display = 'none';
-  resp.classList.add("respuestasAnt");
-  resp.textContent = cuenta + " = " + document.getElementById(seleccionada.id).innerText;
-  document.getElementById("sideBar").prepend(resp)
-
-  const valor = parseInt(botonSeleccionado.textContent);
-  if (valor === window.respuestaCorrecta) {
-    botonSeleccionado.classList.add("correcta");
-    botonSeleccionado.textContent += " ✔";
-    botonSeleccionado.style.backgroundColor = "rgb(106, 153, 78)";
-    resp.style.backgroundColor = "rgb(106, 153, 78)";
-  } else {
-    botonSeleccionado.classList.add("incorrecta");
-    botonSeleccionado.textContent += " ✘";
-    botonSeleccionado.style.backgroundColor = "rgb(188, 71, 73)";
-    resp.style.backgroundColor = "rgb(188, 71, 73)";
-  }
-
-  botones.forEach(boton => {
-    boton.disabled = true;
-  });
-
-  setTimeout(() => {
-    resp.style.display = "initial"
-    botones.forEach(b => {
-      b.disabled = false;
-      b.classList.remove("correcta", "incorrecta");
-      b.style.backgroundColor = "rgb(195, 186, 164)";
+botonContinuar.addEventListener("click", () => {
+  if (seleccionada !== null) {
+    botonContinuar.disabled = true;
+    const botonSeleccionado = document.getElementById(seleccionada.id);
+    const botones = document.querySelectorAll(".opciones button");
+    
+    CargarJson(cuenta, opciones, seleccionada.innerText, correcta);
+  
+    const resp = document.createElement("span");
+    resp.classList.add("respuestasAnt");
+    resp.textContent = cuenta + " = " + document.getElementById(seleccionada.id).innerText;
+  
+    const valor = parseInt(botonSeleccionado.textContent);
+    if (valor === correcta) {
+      botonSeleccionado.classList.add("correcta");
+      botonSeleccionado.textContent += " ✔";
+      botonSeleccionado.style.backgroundColor = "rgb(106, 153, 78)";
+      resp.classList.add("bien");
+    } else {
+      botonSeleccionado.classList.add("incorrecta");
+      botonSeleccionado.textContent += " ✘";
+      botonSeleccionado.style.backgroundColor = "rgb(188, 71, 73)";
+      resp.classList.add("mal");
+    }
+  
+    document.getElementById("sideBar").prepend(resp);
+  
+    botones.forEach(boton => {
+      boton.disabled = true;
     });
-    cuenta = calculo(max);
-    seleccionada = null;
-    max *= 1.1;
-  }, 1000);
+  
+    setTimeout(() => {
+      resp.style.display = "initial"
+      botones.forEach(b => {
+        b.disabled = false;
+        botonContinuar.disabled = false;
+        b.classList.remove("correcta", "incorrecta");
+        b.style.backgroundColor = "rgb(195, 186, 164)";
+      });
+      cuenta = calculo(max);
+      seleccionada = null;
+      max *= 1.1;
+    }, 1000);
+  } else {
+    alert("seleccione una opción");
+  }
+  
 });
