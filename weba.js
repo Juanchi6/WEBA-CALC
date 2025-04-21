@@ -65,18 +65,18 @@ function calculo(maximo) {
   const cuenta = `${num1} ${operator} ${num2}`;
   contenedor.textContent = `${num1} ${operator} ${num2}`;
 
-  let form1 = getRandom(maximo * 2);
-  let form2 = getRandom(maximo * 2);
-  while (form2 === form1 || form1 === resultado || form2 === resultado) {
-    form1 = getRandom(maximo * 2);
-    form2 = getRandom(maximo * 2);
+  opciones.add(resultado);
+
+  while (opciones.size < 4) {
+    opciones.add(getRandom(maximo*2));
   }
 
-  opciones = [resultado, form1, form2].sort(() => Math.random() - 0.5);
+  opciones = [... opciones].sort(() => Math.random() - 0.5);
 
   document.getElementById("1").textContent = opciones[0];
   document.getElementById("2").textContent = opciones[1];
   document.getElementById("3").textContent = opciones[2];
+  document.getElementById("4").textContent = opciones[3];
 
   correcta = resultado;
 
@@ -99,7 +99,7 @@ function getQuestionAnswer(num1, num2, operator) {
 TraerDatos();
 let max = 100;
 let seleccionada = null;
-let opciones = null;
+let opciones = new Set();
 let correcta = null;
 let cuenta = calculo(max);
 const opButtons = document.querySelectorAll(".opciones button");
@@ -133,12 +133,10 @@ botonContinuar.addEventListener("click", () => {
   
     const valor = parseInt(botonSeleccionado.textContent);
     if (valor === correcta) {
-      botonSeleccionado.classList.add("correcta");
       botonSeleccionado.textContent += " ✔";
       botonSeleccionado.style.backgroundColor = "rgb(106, 153, 78)";
       resp.classList.add("bien");
     } else {
-      botonSeleccionado.classList.add("incorrecta");
       botonSeleccionado.textContent += " ✘";
       botonSeleccionado.style.backgroundColor = "rgb(188, 71, 73)";
       resp.classList.add("mal");
@@ -155,9 +153,9 @@ botonContinuar.addEventListener("click", () => {
       botones.forEach(b => {
         b.disabled = false;
         botonContinuar.disabled = false;
-        b.classList.remove("correcta", "incorrecta");
         b.style.backgroundColor = "rgb(195, 186, 164)";
       });
+      opciones = new Set();
       cuenta = calculo(max);
       seleccionada = null;
       max *= 1.1;
