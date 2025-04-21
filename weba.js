@@ -162,6 +162,6 @@ botonContinuar.addEventListener("click", () => {
     }, 1000);
   } else {
     alert("seleccione una opción");
-  }
-  
+  }
+  
 });
