@@ -1,0 +1,246 @@
+{
+  "datos": [
+    {
+      "id": "9a64",
+      "cuenta": "34 x 45",
+      "opciones": [
+        1530,
+        82,
+        90
+      ],
+      "seleccionada": "1530",
+      "correcta": "1530"
+    },
+    {
+      "id": "459c",
+      "cuenta": "244 / 61",
+      "opciones": [
+        192,
+        20,
+        4
+      ],
+      "seleccionada": "4",
+      "correcta": "4"
+    },
+    {
+      "id": "b022",
+      "cuenta": "77 - 32",
+      "opciones": [
+        45,
+        103,
+        138
+      ],
+      "seleccionada": "45",
+      "correcta": "45"
+    },
+    {
+      "id": "f44f",
+      "cuenta": "336 / 42",
+      "opciones": [
+        187,
+        25,
+        8
+      ],
+      "seleccionada": "187",
+      "correcta": "8"
+    },
+    {
+      "id": "0e57",
+      "cuenta": "117 / 13",
+      "opciones": [
+        35,
+        165,
+        9
+      ],
+      "seleccionada": "165",
+      "correcta": "9"
+    },
+    {
+      "id": "f6a3",
+      "cuenta": "12 - 94",
+      "opciones": [
+        188,
+        -82,
+        114
+      ],
+      "seleccionada": "188",
+      "correcta": "-82"
+    },
+    {
+      "id": "7f77",
+      "cuenta": "9 / 1",
+      "opciones": [
+        9,
+        140,
+        3
+      ],
+      "seleccionada": "3",
+      "correcta": "9"
+    },
+    {
+      "id": "f331",
+      "cuenta": "85 - 1",
+      "opciones": [
+        84,
+        197,
+        94
+      ],
+      "seleccionada": "197",
+      "correcta": "84"
+    },
+    {
+      "id": "b0a3",
+      "cuenta": "92 x 88",
+      "opciones": [
+        17,
+        68,
+        8096
+      ],
+      "seleccionada": "17",
+      "correcta": "8096"
+    },
+    {
+      "id": "e92d",
+      "cuenta": "78 x 54",
+      "opciones": [
+        72,
+        2,
+        4212
+      ],
+      "seleccionada": "2",
+      "correcta": "4212"
+    },
+    {
+      "id": "46c9",
+      "cuenta": "3 + 38",
+      "opciones": [
+        98,
+        15,
+        41
+      ],
+      "seleccionada": "98",
+      "correcta": "41"
+    },
+    {
+      "id": "64a0",
+      "cuenta": "34 - 92",
+      "opciones": [
+        3,
+        92,
+        -58
+      ],
+      "seleccionada": "-58",
+      "correcta": "-58"
+    },
+    {
+      "id": "fc08",
+      "cuenta": "42 - 64",
+      "opciones": [
+        168,
+        33,
+        -22
+      ],
+      "seleccionada": "168",
+      "correcta": "-22"
+    },
+    {
+      "id": "ecfa",
+      "cuenta": "1 x 32",
+      "opciones": [
+        32,
+        87,
+        1
+      ],
+      "seleccionada": "32",
+      "correcta": "32"
+    },
+    {
+      "id": "240c",
+      "cuenta": "25 + 62",
+      "opciones": [
+        87,
+        124,
+        153
+      ],
+      "seleccionada": "87",
+      "correcta": "87"
+    },
+    {
+      "id": "5afe",
+      "cuenta": "36 x 55",
+      "opciones": [
+        199,
+        1980,
+        156
+      ],
+      "seleccionada": "199",
+      "correcta": "1980"
+    },
+    {
+      "id": "add6",
+      "cuenta": "297 / 99",
+      "opciones": [
+        12,
+        150,
+        3
+      ],
+      "seleccionada": "12",
+      "correcta": "3"
+    },
+    {
+      "id": "79c7",
+      "cuenta": "63 / 9",
+      "opciones": [
+        7,
+        148,
+        109
+      ],
+      "seleccionada": "7",
+      "correcta": "7"
+    },
+    {
+      "id": "d926",
+      "cuenta": "294 / 42",
+      "opciones": [
+        61,
+        35,
+        7
+      ],
+      "seleccionada": "61",
+      "correcta": "7"
+    },
+    {
+      "id": "d06b",
+      "cuenta": "46 - 98",
+      "opciones": [
+        109,
+        64,
+        -52
+      ],
+      "seleccionada": "109",
+      "correcta": "-52"
+    },
+    {
+      "id": "322b",
+      "cuenta": "51 + 47",
+      "opciones": [
+        98,
+        112,
+        1
+      ],
+      "seleccionada": "112",
+      "correcta": "98"
+    },
+    {
+      "id": "adf3",
+      "cuenta": "60 + 68",
+      "opciones": [
+        159,
+        109,
+        128
+      ],
+      "seleccionada": "109",
+      "correcta": "128"
+    }
+  ]
+}
