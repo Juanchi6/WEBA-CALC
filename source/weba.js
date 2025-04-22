@@ -28,7 +28,7 @@ async function TraerDatos() {
         if (dato.seleccionada === dato.correcta) {
           span.classList.add("bien");
         } else {
-          span.classList.add("mal");
+          span.className = "mal";
         }
         sideBar.prepend(span);
       });
@@ -151,9 +151,9 @@ botonContinuar.addEventListener("click", () => {
     botonContinuar.disabled = true;
     const botones = document.querySelectorAll(".opciones button");
     
-    CargarJson(cuenta, opciones, seleccionada.innerText, `${correcta}`);
+    CargarJson(cuenta, opciones, seleccionada.innerText, correcta);
   
-    let resp = document.createElement("span");
+    const resp = document.createElement("span");
     resp.classList.add("respuestasAnt");
     resp.textContent = cuenta + " = " + document.getElementById(seleccionada.id).innerText;
   
@@ -181,7 +181,6 @@ botonContinuar.addEventListener("click", () => {
       botones.forEach(b => {
         b.disabled = false;
         botonContinuar.disabled = false;
-        b.classList.remove("correcta", "incorrecta");
         b.style.backgroundColor = "rgb(195, 186, 164)";
       });
       opciones = new Set();
