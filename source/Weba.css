@@ -119,3 +119,11 @@ body {
 ::-webkit-scrollbar {
   display: none;
 }
+
+.borrar {
+  background-color: transparent;
+  border: none;
+  position: absolute;
+  right: 20px;
+  cursor: pointer;
+}

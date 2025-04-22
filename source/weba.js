@@ -10,15 +10,42 @@ async function TraerDatos() {
       .slice()
       .forEach((dato) => {
         let span = document.createElement("span");
+        span.id = dato.id;
         span.classList.add("respuestasAnt");
+        span.textContent = dato.cuenta + " = " + dato.seleccionada;
+
+        let botonBorrar = document.createElement("button");
+        botonBorrar.textContent = "✖"
+        botonBorrar.classList.add("borrar")
+        botonBorrar.addEventListener("click", () => {
+          console.log("clicked", dato.id);
+          span.remove();
+          removeFromFile(dato.id);
+        })
+        span.appendChild(botonBorrar);
+
+
         if (dato.seleccionada === dato.correcta) {
           span.classList.add("bien");
         } else {
           span.classList.add("mal");
         }
-        span.textContent = dato.cuenta + " = " + dato.seleccionada;
         sideBar.prepend(span);
       });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+async function removeFromFile(dato_id) {
+  try {
+    const res = await fetch(`http://localhost:3000/datos/${dato_id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      }
+    });
+    if (!res.ok) throw new Error("Error al borrar respuesta");
   } catch (err) {
     console.error(err);
   }
@@ -63,7 +90,7 @@ function calculo(maximo) {
   const resultado = getQuestionAnswer(num1, num2, operator);
 
   const cuenta = `${num1} ${operator} ${num2}`;
-  contenedor.textContent = `${num1} ${operator} ${num2}`;
+  contenedor.textContent = cuenta;
 
   opciones.add(resultado);
 
@@ -122,7 +149,6 @@ const botonContinuar = document.getElementById("boton");
 botonContinuar.addEventListener("click", () => {
   if (seleccionada !== null) {
     botonContinuar.disabled = true;
-    const botonSeleccionado = document.getElementById(seleccionada.id);
     const botones = document.querySelectorAll(".opciones button");
     
     CargarJson(cuenta, opciones, seleccionada.innerText, `${correcta}`);
@@ -131,16 +157,16 @@ botonContinuar.addEventListener("click", () => {
     resp.classList.add("respuestasAnt");
     resp.textContent = cuenta + " = " + document.getElementById(seleccionada.id).innerText;
   
-    const valor = parseInt(botonSeleccionado.textContent);
+    const valor = parseInt(seleccionada.textContent);
     if (valor === correcta) {
-      botonSeleccionado.classList.add("correcta");
-      botonSeleccionado.textContent += " ✔";
-      botonSeleccionado.style.backgroundColor = "rgb(106, 153, 78)";
+      seleccionada.classList.add("correcta");
+      seleccionada.textContent += " ✔";
+      seleccionada.style.backgroundColor = "rgb(106, 153, 78)";
       resp.classList.add("bien");
     } else {
-      botonSeleccionado.classList.add("incorrecta");
-      botonSeleccionado.textContent += " ✘";
-      botonSeleccionado.style.backgroundColor = "rgb(188, 71, 73)";
+      seleccionada.classList.add("incorrecta");
+      seleccionada.textContent += " ✘";
+      seleccionada.style.backgroundColor = "rgb(188, 71, 73)";
       resp.classList.add("mal");
     }
   
