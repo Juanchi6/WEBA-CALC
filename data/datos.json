@@ -12,17 +12,6 @@
       "correcta": "1530"
     },
     {
-      "id": "459c",
-      "cuenta": "244 / 61",
-      "opciones": [
-        192,
-        20,
-        4
-      ],
-      "seleccionada": "4",
-      "correcta": "4"
-    },
-    {
       "id": "b022",
       "cuenta": "77 - 32",
       "opciones": [
@@ -122,28 +111,6 @@
       "correcta": "41"
     },
     {
-      "id": "64a0",
-      "cuenta": "34 - 92",
-      "opciones": [
-        3,
-        92,
-        -58
-      ],
-      "seleccionada": "-58",
-      "correcta": "-58"
-    },
-    {
-      "id": "fc08",
-      "cuenta": "42 - 64",
-      "opciones": [
-        168,
-        33,
-        -22
-      ],
-      "seleccionada": "168",
-      "correcta": "-22"
-    },
-    {
       "id": "ecfa",
       "cuenta": "1 x 32",
       "opciones": [
@@ -175,72 +142,6 @@
       ],
       "seleccionada": "199",
       "correcta": "1980"
-    },
-    {
-      "id": "add6",
-      "cuenta": "297 / 99",
-      "opciones": [
-        12,
-        150,
-        3
-      ],
-      "seleccionada": "12",
-      "correcta": "3"
-    },
-    {
-      "id": "79c7",
-      "cuenta": "63 / 9",
-      "opciones": [
-        7,
-        148,
-        109
-      ],
-      "seleccionada": "7",
-      "correcta": "7"
-    },
-    {
-      "id": "d926",
-      "cuenta": "294 / 42",
-      "opciones": [
-        61,
-        35,
-        7
-      ],
-      "seleccionada": "61",
-      "correcta": "7"
-    },
-    {
-      "id": "d06b",
-      "cuenta": "46 - 98",
-      "opciones": [
-        109,
-        64,
-        -52
-      ],
-      "seleccionada": "109",
-      "correcta": "-52"
-    },
-    {
-      "id": "322b",
-      "cuenta": "51 + 47",
-      "opciones": [
-        98,
-        112,
-        1
-      ],
-      "seleccionada": "112",
-      "correcta": "98"
-    },
-    {
-      "id": "adf3",
-      "cuenta": "60 + 68",
-      "opciones": [
-        159,
-        109,
-        128
-      ],
-      "seleccionada": "109",
-      "correcta": "128"
     }
   ]
 }
