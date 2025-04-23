@@ -18,14 +18,12 @@ async function TraerDatos() {
         botonBorrar.textContent = "✖"
         botonBorrar.classList.add("borrar")
         botonBorrar.addEventListener("click", () => {
-          console.log("clicked", dato.id);
           span.remove();
           removeFromFile(dato.id);
         })
         span.appendChild(botonBorrar);
 
-
-        if (dato.seleccionada === dato.correcta) {
+        if (dato.seleccionada == dato.correcta) {
           span.classList.add("bien");
         } else {
           span.classList.add("mal");
@@ -61,6 +59,7 @@ async function CargarJson(cuentaCargar, opcionesCargar, seleccionadaCargar, corr
       body: JSON.stringify({ cuenta: cuentaCargar, opciones: opcionesCargar, seleccionada: seleccionadaCargar, correcta: correctaCargar })
     });
     if (!res.ok) throw new Error("Error al agregar post");
+    return await res.json();
   } catch (err) {
     console.error(err);
   }
@@ -146,16 +145,17 @@ opButtons.forEach(boton => {
 
 const botonContinuar = document.getElementById("boton"); 
 
-botonContinuar.addEventListener("click", () => {
+botonContinuar.addEventListener("click", async () => {
   if (seleccionada !== null) {
     botonContinuar.disabled = true;
     const botones = document.querySelectorAll(".opciones button");
     
-    CargarJson(cuenta, opciones, seleccionada.innerText, correcta);
-  
+    const respuesta = await CargarJson(cuenta, opciones, seleccionada.innerText, correcta);
+
     const resp = document.createElement("span");
+    resp.id = respuesta.id;
     resp.classList.add("respuestasAnt");
-    resp.textContent = cuenta + " = " + document.getElementById(seleccionada.id).innerText;
+    resp.textContent = `${cuenta} = ${document.getElementById(seleccionada.id).innerText}`;
   
     const valor = parseInt(seleccionada.textContent);
     if (valor === correcta) {
@@ -169,7 +169,16 @@ botonContinuar.addEventListener("click", () => {
       seleccionada.style.backgroundColor = "rgb(188, 71, 73)";
       resp.classList.add("mal");
     }
-  
+    
+    let botonBorrar = document.createElement("button");
+    botonBorrar.textContent = "✖"
+    botonBorrar.classList.add("borrar")
+    botonBorrar.addEventListener("click", () => {
+      resp.remove();
+      removeFromFile(resp.id);
+    })
+    resp.appendChild(botonBorrar);
+
     document.getElementById("sideBar").prepend(resp);
   
     botones.forEach(boton => {
