@@ -28,7 +28,7 @@ async function TraerDatos() {
         if (dato.seleccionada === dato.correcta) {
           span.classList.add("bien");
         } else {
-          span.className = "mal";
+          span.classList.add("mal");
         }
         sideBar.prepend(span);
       });
